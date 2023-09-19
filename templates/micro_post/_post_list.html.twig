@@ -1,0 +1,10 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ">
+    {% if posts|length > 0 %}
+      {% for post in posts %}
+        {{ include ('micro_post/_post.html.twig', {post: post}) }}
+      {% endfor %}
+
+    {% else %}
+     <h5>There is nothing here yet!</h5>
+    </div>
+    {% endif %}

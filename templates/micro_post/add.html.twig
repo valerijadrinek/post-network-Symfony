@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Create New Post {% endblock %}
+{% block bread %} Add Post{% endblock %}
+
+{% block body %}
+ <h2>Create New Post</h2>
+
+     {% include ('micro_post/_form.html.twig') %}
+    
+{% endblock %}

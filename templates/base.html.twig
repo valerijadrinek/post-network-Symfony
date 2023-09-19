@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+       
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+           tailwind.config = {
+            darkMode: 'class'
+           }
+
+        </script>
+    </head>
+    <body class="bg-gray-100 text-gray-800 m-10 dark:bg-gray-800 dark:text-gray-100">
+       <div class="w-full md:w-2/3 mx-auto mb-4 flex justify-between items-center">
+           <div class="text-4xl">
+              <a href="{{ path('app_micro_post') }}">Home<span> / </span></a>
+              <div class="inline text-3xl text-violet-400">
+              {% block bread %}
+
+              {% endblock %}
+              </div>
+           </div>
+         
+         
+           <div class=" flex text-end">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+               <div class="text-xl">
+                 <a href="{{ path('app_micro_post_add') }}">Add Post </a>
+              </div>
+              <div class="text-xl ml-4">
+                 <a href="{{ path('app_setting_profile') }}">Profile settings</a>
+              </div>
+              <div class="text-xl text-end font-bold text-cyan-500/90 dark:text-cyan-300/90 ml-3 lg:ml-6">
+                 <a href="{{ path('app_logout') }}">Logout</a>
+              </div>
+            {% else %}
+              <div class="text-xl ml-3 text-end font-bold text-cyan-500/90 dark:text-cyan-300/90 ">
+                 <a href="{{ path('app_login') }}">Login</a>
+              </div>
+              <div class="text-xl ml-4 text-end font-bold text-cyan-500/90 dark:text-cyan-300/90 ">
+                 <a href="{{ path('app_register') }}">Register</a>
+              </div>
+             {% endif %}
+             
+           </div>
+        </div>
+
+        <div class="w-full md:w-2/3 mx-auto">
+            {% for label, messages in app.flashes('success') %}
+              {% for message in messages %}
+               <div class="rounded-md p-2 border-green-300 bg-green-50 border dark:border-green-600 dark:bg-green-700 dark:text-white mb-4">{{ message }}</div>
+               {% endfor %}
+           {% endfor %}
+        </div>
+          
+
+           {% block body %}
+            {% endblock %}
+    
+    </body>
+</html>

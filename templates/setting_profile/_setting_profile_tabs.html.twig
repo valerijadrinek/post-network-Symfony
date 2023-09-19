@@ -1,0 +1,28 @@
+{% embed 'shared/_tabs.html.twig' %}
+  
+   {% block tabs %}
+      {% embed 'shared/_tab.html.twig' with {route: 'app_setting_profile'} %}
+
+        {% block content %}
+             User profile 
+        {% endblock %}
+              
+        {% block path %}
+             {{ path ('app_setting_profile' ) }}
+        {% endblock %}
+      {% endembed %}
+
+      {% embed 'shared/_tab.html.twig' with {route: 'app_setting_profile_image', classes: "ml-3 lg:ml-6"} %}
+        {% block content %}
+             Profile image 
+        {% endblock %}
+              
+        {% block path %}
+             {{ path ('app_setting_profile_image') }}
+        {% endblock %}
+      {% endembed %}
+
+      
+   {% endblock %}
+
+{% endembed %}
