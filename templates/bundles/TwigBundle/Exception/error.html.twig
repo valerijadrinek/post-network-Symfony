@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ status_code }}{% endblock %}
+{% block bread %} Error {% endblock %}
+
+{% block body %}
+<div class="h-3/4 mt-3 lg:mt-6">
+    <div class=" text-3xl text-red-700 dark:text-red-300 text-center  ">
+       <h1>Error: {{ status_code }} </h1>
+    </div>
+   <div class="text-xl text-center bg-gray-300 dark:bg-gray-600 dark:text-white rounded-md my-6 py-3 lg:py-6"> 
+      {{ exception.message }}
+   </div>
+   <div class ="text-2xl text-center bg-gray-300 dark:bg-gray-600 font-extrabold text-white  rounded-md my-6 py-3 lg:py-6">
+    <div class="w-3/4 mx-auto text-center hover:scale-110 transition ease-in-out">
+      <a href="{{ path('app_micro_post') }}" class="">Return to the homepage</a>
+    </div>
+   </div>
+</div>
+
+{% endblock %}
