@@ -4,9 +4,13 @@
 {% block bread %}Posts{% endblock %}
 
 {% block body %}
+<div class="mb-4 lg:mb-8">
 <h1 class="text-center text-cyan-500/90 font-extrabold dark:text-gray-100 text-3xl/8 my-8 tracking-widest">Welcome to All Posts</h1>
     {{ include('micro_post/_post_tabs.html.twig') }}
     {{ include('micro_post/_post_list.html.twig') }}
     
-    
+</div>  
+{% endblock %}
+{% block footer %}
+{{ parent() }}
 {% endblock %}

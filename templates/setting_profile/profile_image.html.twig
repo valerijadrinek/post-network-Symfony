@@ -4,6 +4,7 @@
 {% block bread %} Profile Image Setting {% endblock %}
 
 {% block body %}
+<div>
     {{ include('setting_profile/_setting_profile_tabs.html.twig') }}
  <div class="w-full lg:w-2/3 mx-auto mb-4 lg:mb-6">
     {{ include('shared/_avatar.html.twig', {'size': 32, profile:app.user.userProfile}) }}
@@ -17,5 +18,5 @@
          <button type="submit" class="block w-full lg:w-2/3 mx-auto bg-cyan-500 text-white text-lg border border-transparent rounded-md  hover:bg-cyan-600 dark:hover:bg-cyan-300">Save Changes</button>
      </div>
    {{ form_end(form) }}
-     
+</div>    
 {% endblock %}

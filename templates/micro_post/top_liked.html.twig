@@ -4,9 +4,10 @@
 {% block bread %}Top Liked Posts{% endblock %}
 
 {% block body %}
+<div>
 <h1 class="text-center text-cyan-500/90 font-extrabold dark:text-gray-100 text-3xl/8 my-8 tracking-widest">Welcome to All Posts</h1>
     {{ include('micro_post/_post_tabs.html.twig') }}
     {{ include('micro_post/_post_list.html.twig') }}
-    
+</div>    
     
 {% endblock %}

@@ -1,5 +1,5 @@
-        <div class="container mx-auto rounded-md shadow-md shadow-cyan-500/50  text-left md:text-center ">
-            <div class="mb-4 text-xl hover:text-2xl text-cyan-500 hover:text-cyan-500/70 dark:hover:text-cyan-500 hover:font-bold transition ease-in-out">
+        <div class="container mx-auto rounded-md shadow-md shadow-cyan-500/50  text-left md:text-center bg-gray-50 dark:bg-gray-600">
+            <div class="mb-4 text-xl hover:text-2xl text-cyan-500 hover:text-cyan-500/70 dark:hover:text-cyan-500 hover:font-bold transition ease-in-out ">
               <a href="{{ path('app_micro_post_show', {post: post.id} )}}">{{ post.title }}</a>
             </div>
            
@@ -25,8 +25,8 @@
             </div>
 
             <div class=" flex  text-small text-grey-800 dark:text-grey-200 ">
-              <a href="{{ path('app_micro_post_comment', {post: post.id} )}}" class="no-underline rounded-md my-2  hover:ring hover:ring-offset-1 hover:ring-offset-slate-500 dark:hover:ring-offset-slate-50 flex-auto text-start ml-2">Comment - <span class="px-2 rounded-md bg-violet-300">{{ post.comments.count }}</span></a>  
-              <a href="{{ path('app_micro_post_edit', {post: post.id} )}}" class="no-underline rounded-md my-2 px-2 hover:ring hover:ring-offset-1 hover:ring-offset-slate-500 dark:hover:ring-offset-slate-50 flex-auto bg-cyan-500/80 dark:bg-cyan-300/80 text-white ">Edit</a>  
+              <a href="{{ path('app_micro_post_comment', {post: post.id} )}}" class="no-underline rounded-md my-2  hover:ring hover:ring-offset-1 hover:ring-offset-slate-500 dark:hover:ring-offset-slate-50 flex-auto text-start ml-2 mr-3 lg:mr-6" title="Add comment">Comment - <span class="px-2 rounded-md bg-violet-300">{{ post.comments.count }}</span></a>  
+              <a href="{{ path('app_micro_post_edit', {post: post.id} )}}" class="no-underline rounded-md my-2 mx-2 px-2 hover:ring hover:ring-offset-1 hover:ring-offset-slate-500 dark:hover:ring-offset-slate-50 flex-auto bg-cyan-500/80 dark:bg-cyan-300/80 text-white content-center ">Edit</a>  
             </div>
            
         </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="">
+<html class="dark">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -21,10 +21,11 @@
 
         </script>
     </head>
-    <body class="bg-gray-100 text-gray-800 m-10 dark:bg-gray-800 dark:text-gray-100">
-       <div class="w-full md:w-2/3 mx-auto mb-4 flex justify-between items-center">
+    <body class="bg-gray-200 text-gray-800 m-10 dark:bg-gray-700 dark:text-gray-100">
+    <div class="w-full bg-gray-300 h-24 lg:h-32 object-cover rounded-md flex items-center" style="background-image: url({{ asset ('assets/hero_2.jpg') }});background-size: cover;">
+       <div class="w-full mx-1 lg:mx-3 mb-4 flex justify-between items-center">
            <div class="text-4xl">
-              <a href="{{ path('app_micro_post') }}">Home<span> / </span></a>
+              <a href="{{ path('app_micro_post') }}" class="text-white hover:text-5xl">Home<span> / </span></a>
               <div class="inline text-3xl text-violet-400">
               {% block bread %}
 
@@ -35,28 +36,29 @@
          
            <div class=" flex text-end">
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-               <div class="text-xl">
+               <div class="text-xl hover:text-2xl">
                  <a href="{{ path('app_micro_post_add') }}">Add Post </a>
               </div>
-              <div class="text-xl ml-4">
+              <div class="text-xl ml-4 hover:text-2xl">
                  <a href="{{ path('app_setting_profile') }}">Profile settings</a>
               </div>
-              <div class="text-xl text-end font-bold text-cyan-500/90 dark:text-cyan-300/90 ml-3 lg:ml-6">
+              <div class="text-xl text-end font-bold text-cyan-500/90 dark:text-cyan-300/90 ml-3 lg:ml-6 hover:text-2xl">
                  <a href="{{ path('app_logout') }}">Logout</a>
               </div>
             {% else %}
-              <div class="text-xl ml-3 text-end font-bold text-cyan-500/90 dark:text-cyan-300/90 ">
+              <div class="text-xl ml-3 text-end font-bold text-cyan-500/90 dark:text-cyan-300/90 hover:text-3xl">
                  <a href="{{ path('app_login') }}">Login</a>
               </div>
-              <div class="text-xl ml-4 text-end font-bold text-cyan-500/90 dark:text-cyan-300/90 ">
+              <div class="text-xl ml-4 text-end font-bold text-cyan-500/90 dark:text-cyan-300/90 hover:text-2xl">
                  <a href="{{ path('app_register') }}">Register</a>
               </div>
              {% endif %}
              
            </div>
         </div>
+      </div>
 
-        <div class="w-full md:w-2/3 mx-auto">
+        <div class="w-full md:w-2/3 mx-auto ">
             {% for label, messages in app.flashes('success') %}
               {% for message in messages %}
                <div class="rounded-md p-2 border-green-300 bg-green-50 border dark:border-green-600 dark:bg-green-700 dark:text-white mb-4">{{ message }}</div>
@@ -67,6 +69,15 @@
 
            {% block body %}
             {% endblock %}
+       {% block footer %}
+       <div class=" block w-full bg-gray-300 h-16 mt-6 lg:mt-10 rounded-md ">
+         <div class=" flex flex-col items-center content-evenly w-full h-full rounded-md"  style="background-image: url({{ asset ('assets/svg-image.svg') }});">
+             <a class="text-white mt-2" href="#">© 2020 Copyright:</a> 
+             <a class="text-white" href="#">SocialMediaPost.com  </a>
+             
+          </div>
+       </div>
+       {% endblock %}
     
     </body>
 </html>

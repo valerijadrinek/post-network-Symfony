@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\UserProfile;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpKernel\Profiler\Profiler;
 
 /**
  * @extends ServiceEntityRepository<UserProfile>

@@ -5,6 +5,7 @@
  <a href="{{ path('app_micro_post_show', {post: post.id}) }}">Post</a> / Add Comment {% endblock %}
 
 {% block body %}
+<div>
 <div class="container w-full md:w-2/3 xl:w-1/2 mx-auto mt-8 lg:mt-16 rounded-md shadow-md shadow-cyan-500/50  text-left md:text-center ">
    {{ include ('micro_post/_post.html.twig', {post: post}) }}
  </div> 
@@ -29,6 +30,6 @@
     {{ form_end (form) }}
     </div> 
 
-    
+ </div>   
     
 {% endblock %}
