@@ -12,9 +12,7 @@ class LoginController extends AbstractController
 
     //login 
     #[Route('/login', name: 'app_login')]
-    public function index(
-        AuthenticationUtils $utils
-    ): Response
+    public function index(AuthenticationUtils $utils ): Response
     {   
         
         $lastUsername = $utils->getLastUsername();

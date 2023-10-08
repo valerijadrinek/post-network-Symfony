@@ -2,14 +2,12 @@
 
 namespace App\Controller;
 
-use DateTime;
+
 use App\Entity\User;
 use App\Entity\Comment;
 use App\Entity\MicroPost;
 use App\Form\CommentType;
 use App\Form\MicroPostType;
-use App\Repository\CommentRepository;
-use App\Repository\MicroPostRepository;
 use App\Service\MicroPostService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,8 +67,8 @@ class MicroPostController extends AbstractController
     public function showOne(MicroPost $post) : Response
     {
      
-      return $this->render('micro_post/show.html.twig', [
-        'post' => $post,
+       return $this->render('micro_post/show.html.twig', [
+         'post' => $post,
     ]);
     }
 
@@ -92,11 +90,12 @@ class MicroPostController extends AbstractController
        $form->handleRequest($request);
 
        $added = $service->formAdd($form);
+
        if($added) {
-        //Add a flash message
-        $this->addFlash('success', 'Your post has been added'); 
- 
-        return $this->redirectToRoute('app_micro_post');
+            //Add a flash message
+            $this->addFlash('success', 'Your post has been added'); 
+    
+            return $this->redirectToRoute('app_micro_post');
         
        }
 
@@ -119,11 +118,11 @@ class MicroPostController extends AbstractController
        $edited = $service->formEdit($form);
        
        if($edited) {
-        //Add a flash message
-        $this->addFlash('success', 'Your post has been editted'); 
+            //Add a flash message
+            $this->addFlash('success', 'Your post has been editted'); 
 
-        return $this->redirectToRoute('app_micro_post');
-        //Redirect
+            return $this->redirectToRoute('app_micro_post');
+            //Redirect
        }
 
        return $this->renderForm('micro_post/edit.html.twig', 
@@ -148,21 +147,21 @@ class MicroPostController extends AbstractController
 
        if($commented) {
 
-        //Add a flash message
-        $this->addFlash('success', 'Your comment has been editted'); 
+            //Add a flash message
+            $this->addFlash('success', 'Your comment has been editted'); 
 
-        return $this->redirectToRoute('app_micro_post_show',
-            [
-               'post' => $post->getId()
-            ]);
+            return $this->redirectToRoute('app_micro_post_show',
+                [
+                'post' => $post->getId()
+                ]);
         
        }
 
        return $this->renderForm('micro_post/comment.html.twig', 
-    [
-       'form' => $form, 
-       'post' => $post
-    ]);
+            [
+            'form' => $form, 
+            'post' => $post
+            ]);
 
     }
 }

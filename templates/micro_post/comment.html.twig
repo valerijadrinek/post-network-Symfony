@@ -1,35 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ post.title }}-Add Comment {% endblock %}
- {% block bread %}
- <a href="{{ path('app_micro_post_show', {post: post.id}) }}">Post</a> / Add Comment {% endblock %}
+{% block title %}
+	{{ post.title }}-Add Comment
+{% endblock %}
+{% block bread %}
+	<a href="{{ path('app_micro_post_show', {post: post.id}) }}">Post</a>
+	/ Add Comment
+{% endblock %}
 
 {% block body %}
-<div>
-<div class="container w-full md:w-2/3 xl:w-1/2 mx-auto mt-8 lg:mt-16 rounded-md shadow-md shadow-cyan-500/50  text-left md:text-center ">
-   {{ include ('micro_post/_post.html.twig', {post: post}) }}
- </div> 
+	<div>
+		 <div class="container w-full md:w-2/3 xl:w-1/2 mx-auto mt-8 lg:mt-16 rounded-md shadow-md shadow-cyan-500/50  text-left md:text-center ">
+			{{ include ('micro_post/_post.html.twig', {post: post}) }}
+		 </div>
 
-<div class="container w-full md:w-2/3 xl:w-1/2 mx-auto mt-8 lg:mt-16 rounded-md shadow-md shadow-cyan-500/50  text-left md:text-center ">
-{{ form_start (form, { 'attr': {'novalidate': 'novalidate'}}) }}
-      <div> {{ form_errors (form) }} </div>
+		 <div class="container w-full md:w-2/3 xl:w-1/2 mx-auto mt-8 lg:mt-16 rounded-md shadow-md shadow-cyan-500/50  text-left md:text-center ">
+			{{ form_start (form, { 'attr': {'novalidate': 'novalidate'}}) }}
+			<div>
+				{{ form_errors (form) }}
+			</div>
 
-      
-      <div>
-        {{ form_label (form.text, 'Enter Comment Here : ', {'label_attr': {'class': 'block text-sm text-grey-800 dark:text-grey-200 font-medium mb-2' } }) }}
-        {{ form_widget(form.text, { 'attr': {'class': 'block w-full border border-gray-300 dark:border-gray-700 dark:text-gray-800 rounded-md px-2 mb-4'} } ) }}
 
-        {{ form_errors(form.text) }}
-      </div>
+			<div>
+				{{ form_label (form.text, 'Enter Comment Here : ', {'label_attr': {'class': 'block text-sm text-grey-800 dark:text-grey-200 font-medium mb-2' } }) }}
+				{{ form_widget(form.text, { 'attr': {'class': 'block w-full border border-gray-300 dark:border-gray-700 dark:text-gray-800 rounded-md px-2 mb-4'} } ) }}
 
-      <div>
-      <button type="submit" class="block w-2/3 mx-auto bg-cyan-500 text-white text-lg border border-transparent rounded-md hover:scale-125 hover:bg-cyan-600 dark:hover:bg-cyan-300">Add Comment</button>
-      </div>
-      
+				{{ form_errors(form.text) }}
+			</div>
 
-    {{ form_end (form) }}
-    </div> 
+			<div>
+				<button type="submit" class="block w-2/3 mx-auto bg-cyan-500 text-white text-lg border border-transparent rounded-md hover:scale-125 hover:bg-cyan-600 dark:hover:bg-cyan-300">Add Comment</button>
+			</div>
 
- </div>   
-    
+
+			{{ form_end (form) }}
+		</div>
+
+	</div>
+
 {% endblock %}

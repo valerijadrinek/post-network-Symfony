@@ -24,7 +24,7 @@ class SettingProfileController extends AbstractController
     public function profile(
               Request $request,
               UserService $service
-    ): Response
+            ): Response
     {
         /** @var User $user */
         //getting the user
@@ -37,7 +37,8 @@ class SettingProfileController extends AbstractController
         $form->handleRequest($request);
 
         $profileSet = $service->profileSet($form, $user);
-            //adding flash messages
+        
+        //adding flash messages
         if($profileSet) {
 
             $this->addFlash(

@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} All Posts {% endblock title %}
+{% block title %}
+	All Posts
+{% endblock title %}
 
- {% block body %}
-  
-    <div>
-    {% if messages|length > 0 %}
-      {% for key,message in messages|slice(0, limit) %}
-        <div>
-           <a href="{{ path('app_show_one', {id: key} )}}">{{ message.message }}</a>
-        </div> 
-       {% include ('hello/_message.html.twig') %}
-      {% endfor %}
-    {% else %}
-     <h5>There is nothing here yet!</h5>
-    {% endif %}
-    
-    </div>
- {% endblock %}
+{% block body %}
 
+	<div>
+		{% if messages|length > 0 %}
+			{% for key,message in messages|slice(0, limit) %}
+				<div>
+					<a href="{{ path('app_show_one', {id: key} )}}">{{ message.message }}</a>
+				</div>
+				{% include ('hello/_message.html.twig') %}
+			{% endfor %}
+		{% else %}
+			<h5>There is nothing here yet!</h5>
+		{% endif %}
 
+	</div>
+{% endblock %}

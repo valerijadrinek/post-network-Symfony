@@ -1,15 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User Follows {% endblock %}
- {% block bread %}User Follows {% endblock %}
+{% block title %}User Follows
+{% endblock %}
+{% block bread %}User Follows
+{% endblock %}
 
 {% block body %}
-<div>
-  {{ include ('profile/_profile_header.html.twig') }}
+	<div>
+		{{ include ('profile/_profile_header.html.twig') }}
 
-  {{ include ('profile/_profile_tabs.html.twig') }}
+		{{ include ('profile/_profile_tabs.html.twig') }}
 
-  
-  {{ include ('follower/_follower_list.html.twig', {users: user.follows}) }}
-</div>  
+
+		{{ include ('follower/_follower_list.html.twig', {users: user.follows}) }}
+	</div>
 {% endblock %}

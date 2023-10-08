@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
- {% block body %}
- <h1>Welcome to Symfony!</h1>
-   <div>The current message is : </div>
-        <div>
-            <b>{{ message.message }}</b>
-        </div>
-    {% include ('hello/_message.html.twig') %}
- 
- {% endblock %}
+{% block body %}
+	<h1>Welcome to Symfony!</h1>
+	<div>The current message is : </div>
+	<div>
+		<b>{{ message.message }}</b>
+	</div>
+	{% include ('hello/_message.html.twig') %}
 
+{% endblock %}

@@ -1,22 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Profile Image {% endblock %}
-{% block bread %} Profile Image Setting {% endblock %}
+{% block title %}
+	Profile Image
+{% endblock %}
+{% block bread %}
+	Profile Image Setting
+{% endblock %}
 
 {% block body %}
-<div>
-    {{ include('setting_profile/_setting_profile_tabs.html.twig') }}
- <div class="w-full lg:w-2/3 mx-auto mb-4 lg:mb-6">
-    {{ include('shared/_avatar.html.twig', {'size': 32, profile:app.user.userProfile}) }}
- </div>
-   
-   {{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
-     {{ form_label(form.profileImage, ' Click To Upload File', {'label_attr': {'class': 'block w-full lg:w-2/3 mx-auto text-right shadow-sm border border-transparent bg-gray-300 hover:bg-gray-400 hover:text-white cursor-pointer rounded-md  pr-5 lg:pr-10 mb-2 lg:mb-4'}}) }}
-     {{ form_widget(form.profileImage, {'attr': {'class': 'hidden '}}) }}
-     {{ form_errors(form.profileImage) }}
-     <div>
-         <button type="submit" class="block w-full lg:w-2/3 mx-auto bg-cyan-500 text-white text-lg border border-transparent rounded-md  hover:bg-cyan-600 dark:hover:bg-cyan-300">Save Changes</button>
-     </div>
-   {{ form_end(form) }}
-</div>    
+	<div>
+		{{ include('setting_profile/_setting_profile_tabs.html.twig') }}
+		<div class="w-full lg:w-2/3 mx-auto mb-4 lg:mb-6">
+			{{ include('shared/_avatar.html.twig', {'size': 32, profile:app.user.userProfile}) }}
+		</div>
+
+		{{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
+		{{ form_label(form.profileImage, ' Click To Upload File', {'label_attr': {'class': 'block w-full lg:w-2/3 mx-auto text-right shadow-sm border border-transparent bg-gray-300 hover:bg-gray-400 hover:text-white cursor-pointer rounded-md  pr-5 lg:pr-10 mb-2 lg:mb-4'}}) }}
+		{{ form_widget(form.profileImage, {'attr': {'class': 'hidden '}}) }}
+		{{ form_errors(form.profileImage) }}
+		<div>
+			<button type="submit" class="block w-full lg:w-2/3 mx-auto bg-cyan-500 text-white text-lg border border-transparent rounded-md  hover:bg-cyan-600 dark:hover:bg-cyan-300">Save Changes</button>
+		</div>
+		{{ form_end(form) }}
+	</div>
 {% endblock %}

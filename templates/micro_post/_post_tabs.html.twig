@@ -1,36 +1,36 @@
 {% embed 'shared/_tabs.html.twig' %}
-  
-   {% block tabs %}
-      {% embed 'shared/_tab.html.twig' with {route: 'app_micro_post'} %}
 
-        {% block content %}
-            All Posts 
-        {% endblock %}
-              
-        {% block path %}
-             {{ path ('app_micro_post') }}
-        {% endblock %}
-      {% endembed %}
+	{% block tabs %}
+		{% embed 'shared/_tab.html.twig' with {route: 'app_micro_post'} %}
 
-      {% embed 'shared/_tab.html.twig' with {route: 'app_micro_post_topliked', classes: "ml-3 lg:ml-6"} %}
-        {% block content %}
-             Top Liked posts 
-        {% endblock %}
-              
-        {% block path %}
-             {{ path ('app_micro_post_topliked') }}
-        {% endblock %}
-      {% endembed %}
+			{% block content %}
+				All Posts
+			{% endblock %}
 
-      {% embed 'shared/_tab.html.twig' with {route: 'app_micro_post_follows', classes: "ml-3 lg:ml-6"} %}
-        {% block content %}
-             Posts From People You Follow 
-        {% endblock %}
-              
-        {% block path %}
-             {{ path ('app_micro_post_follows') }}
-        {% endblock %}
-      {% endembed %}
-    {% endblock %}
+			{% block path %}
+				{{ path ('app_micro_post') }}
+			{% endblock %}
+		{% endembed %}
+
+		{% embed 'shared/_tab.html.twig' with {route: 'app_micro_post_topliked', classes: "ml-3 lg:ml-6"} %}
+			{% block content %}
+				Top Liked posts
+			{% endblock %}
+
+			{% block path %}
+				{{ path ('app_micro_post_topliked') }}
+			{% endblock %}
+		{% endembed %}
+
+		{% embed 'shared/_tab.html.twig' with {route: 'app_micro_post_follows', classes: "ml-3 lg:ml-6"} %}
+			{% block content %}
+				Posts From People You Follow
+			{% endblock %}
+
+			{% block path %}
+				{{ path ('app_micro_post_follows') }}
+			{% endblock %}
+		{% endembed %}
+	{% endblock %}
 
 {% endembed %}
