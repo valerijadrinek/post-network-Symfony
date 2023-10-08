@@ -1,36 +1,38 @@
 {{ form_start (form, { 'attr': {'novalidate': 'novalidate'}}) }}
-      <div> {{ form_errors (form) }} </div>
+<div>
+	  {{ form_errors (form) }}
+</div>
 
-      <div>
-        {{ form_label (form.title, 'Enter Title : ', {'label_attr': {'class': 'block text-sm text-grey-800 dark:text-grey-200 font-medium mb-2'} }) }}
-        {{ form_widget(form.title, { 'attr': {'class': 'block w-full border border-gray-300 dark:border-gray-700 dark:text-gray-800 rounded-md px-2 mb-4'} }) }}
+<div>
+	  {{ form_label (form.title, 'Enter Title : ', {'label_attr': {'class': 'block text-sm text-grey-800 dark:text-grey-200 font-medium mb-2'} }) }}
+	  {{ form_widget(form.title, { 'attr': {'class': 'block w-full border border-gray-300 dark:border-gray-700 dark:text-gray-800 rounded-md px-2   mb-4'} }) }}
+ 
+	  {{ form_errors(form.title) }}
+</div>
 
-        {{ form_errors(form.title) }}
-      </div>
-      
-      <div>
-        {{ form_label (form.text, 'Enter Text : ', {'label_attr': {'class': 'block text-sm text-grey-800 dark:text-grey-200 font-medium mb-2' } }) }}
-        {{ form_widget(form.text, { 'attr': {'class': 'block w-full border border-gray-300 dark:border-gray-700 dark:text-gray-800 rounded-md px-2 mb-4'} } ) }}
+<div>
+  	{{ form_label (form.text, 'Enter Text : ', {'label_attr': {'class': 'block text-sm text-grey-800 dark:text-grey-200 font-medium mb-2' } }) }}
+	  {{ form_widget(form.text, { 'attr': {'class': 'block w-full border border-gray-300 dark:border-gray-700 dark:text-gray-800 rounded-md px-2      mb-4'} } ) }}
 
-        {{ form_errors(form.text) }}
-      </div>
-      
-      {# checkbox #}
-      <div class="w-full md:w-2/3 mx-auto text-center my-2">  
-        <div class="flex items-center">
-           {{ form_widget(form.extraPrivacy, { 'attr': {'class': 'inline-block  h-4 w-4 rounded border border-cyan-700 ml-6 lg:ml-8'  } } )
+	  {{ form_errors(form.text) }}
+</div>
+
+{# checkbox #}
+<div class="w-full md:w-2/3 mx-auto text-center my-2">
+	<div class="flex items-center">
+		  {{ form_widget(form.extraPrivacy, { 'attr': {'class': 'inline-block  h-4 w-4 rounded border border-cyan-700 ml-6 lg:ml-8'  } } )
            }}
-           {{ form_label(form.extraPrivacy, 'I wont extra privacy', { 'label_attr': {'class': 'text-sm text-cyan-700 dark:text-cyan-300 font-medium ml-2' }}) }}
-        </div>
-      </div>
+		  {{ form_label(form.extraPrivacy, 'I wont extra privacy', { 'label_attr': {'class': 'text-sm text-cyan-700 dark:text-cyan-300 font-medium    ml-2' }}) }}
+	</div>
+</div>
 
-      <div class="text-sm text-gray-400 dark:text-gray-300 mb-6 ">
-           This post can only be seen by the people you follow.
-      </div>
+<div class="text-sm text-gray-400 dark:text-gray-300 mb-6 ">
+	  This post can only be seen by the people you follow.
+</div>
 
-      <div>
-      <button type="submit" class="block w-2/3 mx-auto bg-cyan-500 text-white text-lg border border-transparent rounded-md hover:scale-125 hover:bg-cyan-600 dark:hover:bg-cyan-300">Save</button>
-      </div>
-      
+<div>
+	  <button type="submit" class="block w-2/3 mx-auto bg-cyan-500 text-white text-lg border border-transparent rounded-md hover:scale-125 hover:bg-cyan-600 dark:hover:bg-cyan-300">Save</button>
+</div>
 
-    {{ form_end (form) }}
+
+{{ form_end (form) }}

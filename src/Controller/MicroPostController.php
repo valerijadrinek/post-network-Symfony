@@ -18,11 +18,12 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
 class MicroPostController extends AbstractController
 {
 
     //showing all posts
-   #[Route('/{_locale}/', name: 'app_micro_post')]
+   #[Route('/micro-post', name:'app_micro_post')]//add here /micro-post instead of _locale
    public function index(MicroPostService $service): Response
    {
         $posts = $service->allPosts();
@@ -34,7 +35,7 @@ class MicroPostController extends AbstractController
 
 
   //showing Top Liked posts
-    #[Route('/{_locale}/top-liked', name: 'app_micro_post_topliked')]
+    #[Route('/micro-post/top-liked', name: 'app_micro_post_topliked')]
     public function topLiked(MicroPostService $service): Response
     {
         
@@ -48,7 +49,7 @@ class MicroPostController extends AbstractController
    
 
     //showing posts from persons that user follows
-    #[Route('/{_locale}/follows', name: 'app_micro_post_follows')]
+    #[Route('/micro-post/follows', name: 'app_micro_post_follows')]
     #[IsGranted('IS_AUTHENTICATED_FULLY')]
     public function follows(MicroPostService $service): Response
     {
@@ -63,7 +64,7 @@ class MicroPostController extends AbstractController
     }
 
    //showing one post
-    #[Route('/{_locale}/{post}', name: 'app_micro_post_show')]
+    #[Route('/micro-post/{post}', name: 'app_micro_post_show')]
     #[IsGranted(MicroPost::VIEW, 'post')]
     public function showOne(MicroPost $post) : Response
     {
@@ -74,7 +75,7 @@ class MicroPostController extends AbstractController
     }
 
 
-    #[Route('/{_locale}/add', name:'app_micro_post_add', priority:2)]
+    #[Route('/micro-post/add', name:'app_micro_post_add', priority:2)]
     #[IsGranted('IS_AUTHENTICATED_FULLY')]
     public function add(Request $request, MicroPostService $service) : Response 
     {
@@ -106,7 +107,7 @@ class MicroPostController extends AbstractController
 
     }
 
-    #[Route('/{_locale}/{post}/edit', name:'app_micro_post_edit')]
+    #[Route('/micro-post/{post}/edit', name:'app_micro_post_edit')]
     #[IsGranted(MicroPost::EDIT, 'post')]
     public function edit(MicroPost $post, Request $request, MicroPostService $service) : Response 
     {
@@ -134,7 +135,7 @@ class MicroPostController extends AbstractController
 
     }
 
-    #[Route('/{_locale}/{post}/comment', name:'app_micro_post_comment')]
+    #[Route('/micro-post/{post}/comment', name:'app_micro_post_comment')]
     #[IsGranted('ROLE_COMMENTER')]
     public function addComment(MicroPost $post, Request $request, MicroPostService $service) : Response 
     {
